@@ -1,10 +1,10 @@
-module sign_extend(input wire[15:0] instruction, output wire[31:0] out);
+module sign_extend(input wire[15:0] instruction, output wire[31:0] out); 
 
 	always @(*) begin
-		if(instruction[15] == 1'b0) begin
+		if(instruction[15] == 1'b0) begin // caso o bit mais a esquerda seja 0, preenche o restante com 0
 			out = {16'b0000000000000000, instruction};
 		and else begin
-			out = {16'b1111111111111111, instruction};
+			out = {16'b1111111111111111, instruction}; // caso contrario, preenche com 1
 		end
 	end
 	
