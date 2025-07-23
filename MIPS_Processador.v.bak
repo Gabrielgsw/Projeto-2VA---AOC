@@ -1,0 +1,15 @@
+module MIPS_Processador(clock, reset, PC_out, ULA_A, ULA_B, ULA_out, d_mem_out);
+
+// Entradas e saídas do MIPSTopLevel
+input wire clock, reset;
+output wire [31:0] PC_out, ULA_A, ULA_B, ULA_out, d_mem_out;
+
+	
+	
+
+	
+	
+	
+	
+
+endmodule

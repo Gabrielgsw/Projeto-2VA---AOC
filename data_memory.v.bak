@@ -30,7 +30,7 @@ reg [data_width-1:0] memory [memory_size-1:0];				// A memória do data_memory
 	always @ (negedge clk) begin
 		
 		if (memRead == 1) begin
-			readData = memory[address];
+			assign readData = memory[address];
 		end
 	end
 	

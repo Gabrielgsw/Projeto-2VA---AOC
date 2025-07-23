@@ -17,15 +17,15 @@ reg [31:0] registradores[0:31];
 integer aux;
 
 // Bloco sempre sensível à borda de subida do clock ou do reset
-always @(posedge clk or posedge rst) begin
-    if (reset) begin
+always @ (posedge clk or posedge rst) begin
+    if (rst) begin
         // Zera todos os registradores no reset
         for (aux = 0; aux < 32; aux = aux + 1) begin
             registradores[aux] <= 32'b0;
-				aux = aux + 1
+				aux = aux + 1;
         end
-    end 
-    else begin
+    
+	 end else begin
         // Escrita apenas se RegWrite estiver ativo e registrador não for o zero
         if (RegWrite && WriteRegister != 5'b00000) begin
             registradores[WriteRegister] <= WriteData;
