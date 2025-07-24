@@ -1,3 +1,10 @@
+// Atividade 2VA - Arquitetura e Organizacao de Computadores [2025.1]
+// Gabriel Germano dos Santos Wanderley
+// Samara Accioly
+// Vitor Barros de Carvalho
+// Wellington Viana da Silva Junior
+
+
 module i_mem #(
     parameter MEM_SIZE = 64  // tamanho da memória (parametrizável)
 )(
