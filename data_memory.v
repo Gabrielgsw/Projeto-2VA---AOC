@@ -31,7 +31,7 @@ reg [data_width-1:0] memory [0:(1 << memory_size) -1];				// A memória do data_
 		
 		else begin // caso nao, verifica se escrita em memoria (SW)
 			readData = 32'b0;
-			if (memRead == 1)
+			if (memWrite == 1)
 				memory[address] = writeData;
 		end
 	end
