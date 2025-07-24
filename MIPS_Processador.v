@@ -1,3 +1,9 @@
+// Atividade 2VA - Arquitetura e Organizacao de Computadores [2025.1]
+// Gabriel Germano dos Santos Wanderley
+// Samara Accioly
+// Vitor Barros de Carvalho
+// Wellington Viana da Silva Junior
+
 module MIPS_Processador(clock, reset, PC_out, ULA_A, ULA_B, ULA_out, d_mem_out);
 
 	// Entradas e saídas do Top Level
