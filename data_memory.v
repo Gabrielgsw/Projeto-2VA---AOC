@@ -1,3 +1,9 @@
+// Atividade 2VA - Arquitetura e Organizacao de Computadores [2025.1]
+// Gabriel Germano dos Santos Wanderley
+// Samara Accioly
+// Vitor Barros de Carvalho
+// Wellington Viana da Silva Junior
+
 
 module data_memory (address, writeData, readData, memWrite, memRead);
 // Declarar parâmetros
