@@ -1,5 +1,5 @@
 module i_mem #(
-    parameter MEM_SIZE = 256  // tamanho da memória (parametrizável)
+    parameter MEM_SIZE = 64  // tamanho da memória (parametrizável)
 )(
     input wire [31:0] address,    
     output wire [31:0] i_out      

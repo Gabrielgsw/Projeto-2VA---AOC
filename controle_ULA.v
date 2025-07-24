@@ -20,7 +20,7 @@ module controle_ULA(ALUOp, funct, ALUControl, shamt);
 			4'b0111: ALUControl = 4'b0111; // XORI
 			4'b1000: ALUControl = 4'b1000; // LUI
 			4'b1111: begin // R-type
-			
+				shamt = 0;
 				case(funct)
 					6'b100000: ALUControl = 4'b0000; // ADD
 					6'b100010: ALUControl = 4'b0001; // SUB

@@ -33,6 +33,6 @@ module ula (in1, in2, op, result, zero_flag);
 	
 	end
 	
-	assign zero_flag = (result == 0) ? 1 : 0 ;			// Se o resultado for igual a 0, então a zero_flag se torna 1(útil para funções de beq, por exemplo)	
+	assign zero_flag = (result == 32'b0) ? (op == 4'b0010 ? 1'b0 : 1'b1) : (op == 4'b0010 ? 1'b1 : 1'b0);	// Se o resultado for igual a 0, então a zero_flag se torna 1(útil para funções de beq, por exemplo)	
 
 endmodule
