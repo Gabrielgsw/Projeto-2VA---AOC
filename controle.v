@@ -1,3 +1,10 @@
+// Atividade 2VA - Arquitetura e Organizacao de Computadores [2025.1]
+// Gabriel Germano dos Santos Wanderley
+// Samara Accioly
+// Vitor Barros de Carvalho
+// Wellington Viana da Silva Junior
+
+
 // Unidade de Controle
 
 module controle(opcode, RegDst, RegWrite, ALUSrc, Branch, MemRead, MemWrite, MemToReg, Jump, WriteLink, ALUOp);
