@@ -10,4 +10,5 @@ Este projeto consiste em implementar uma versão simplificada do núcleo do MIPS
 
 # RTL Viewer
 
-<img width="1611" height="562" alt="Captura de tela 2025-07-24 102541" src="https://github.com/user-attachments/assets/28209073-d5b2-4d57-83d0-b40aa93b6069" />
+<img width="1875" height="854" alt="image" src="https://github.com/user-attachments/assets/3f230cf4-8563-4c77-afb2-1d1003751a05" />
+
