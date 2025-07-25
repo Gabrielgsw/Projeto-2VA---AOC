@@ -29,7 +29,6 @@ always @ (posedge clk or posedge rst) begin
         // Zera todos os registradores no reset
         for (aux = 0; aux < 32; aux = aux + 1) begin
             registradores[aux] <= 32'b0;
-				aux = aux + 1;
         end
     
 	 end else begin
