@@ -7,15 +7,17 @@
 
 // Unidade de Controle da ULA
 
-module controle_ULA(ALUOp, funct, ALUControl, shamt);
+module controle_ULA(ALUOp, funct, ALUControl, shamt, JumpRegister);
 	input wire [3:0] ALUOp; // vindo do Control
 	input wire [5:0] funct; // vindo da IM para R-type
 	output reg shamt; // shift amount
+	output reg JumpRegister;
 	output reg [3:0] ALUControl; // utilizado na ALU
 
 
 	always @ (*) begin
 		shamt = 0;
+		JumpRegister = 0;
 		case(ALUOp)
 			4'b0000: ALUControl = 4'b0000; // ADDI
 			4'b0001: ALUControl = 4'b0001; // SUB do BEQ
@@ -28,6 +30,7 @@ module controle_ULA(ALUOp, funct, ALUControl, shamt);
 			4'b1000: ALUControl = 4'b1000; // LUI
 			4'b1111: begin // R-type
 				shamt = 0;
+				JumpRegister = 0;
 				case(funct)
 					6'b100000: ALUControl = 4'b0000; // ADD
 					6'b100010: ALUControl = 4'b0001; // SUB
@@ -56,6 +59,7 @@ module controle_ULA(ALUOp, funct, ALUControl, shamt);
 					6'b000100: ALUControl = 4'b1001; // SLLV
 					6'b000110: ALUControl = 4'b1010; // SRLV
 					6'b000111: ALUControl = 4'b1011; // SRAV
+					6'b001000: ALUControl = 4'b1100; // JR
 					default: ALUControl = 4'bxxxx; // invalido
 					
 				endcase

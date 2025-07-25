@@ -74,6 +74,7 @@ module MIPS_Processador(clock, reset, PC_out, ULA_out, d_mem_out);
 	wire MemToReg;
 	wire Jump; 				// usado para instrucoes j e jal
 	wire WriteLink; 		// usado para jal
+	wire JumpRegister;	// Usado para JR
 	wire [3:0] ALUOp; 	// expansao para 3 bits para suportar mais instrucoes de forma direta
 	
 	
@@ -90,9 +91,10 @@ module MIPS_Processador(clock, reset, PC_out, ULA_out, d_mem_out);
 	// ####### Parte acima dos JUMPS e PC + 4 #######
 	assign jump_address = {somador_PC_4, cabo_jump, 2'b00};
 
-	assign mux_nextPC = Jump ? jump_address : 
-								Branch && cabo_zero_flag ? cabo_somador_jump :
-								somador_PC_4;
+	assign mux_nextPC = JumpRegister ? valor_reg1 :
+                    Branch && cabo_zero_flag ? cabo_somador_jump :
+                    Jump ? jump_address :
+                    somador_PC_4;
 								
 	// PC + 4
 	assign somador_PC_4 = cabo_PC_out + 4;
@@ -125,7 +127,8 @@ module MIPS_Processador(clock, reset, PC_out, ULA_out, d_mem_out);
 	.ALUOp(ALUOp),
 	.funct(cabo_funct),
 	.ALUControl(cabo_ALU_ctrl_out),
-	.shamt(shamt)
+	.shamt(shamt),
+	.JumpRegister(JumpRegister)
 	);
 
 	// modulo do PC
@@ -171,6 +174,7 @@ module MIPS_Processador(clock, reset, PC_out, ULA_out, d_mem_out);
 	
 	// modulo do data memory
 	data_memory data_memory_inst(
+	.clock(clock),
 	.address(ALU_result),				// Entrada saindo da ula
 	.writeData(valor_reg2),				// Entrada vindo do RegFile(Escrita)
 	.readData(cabo_d_mem_out),	
